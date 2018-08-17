@@ -9,3 +9,4 @@ function getRem(pwidth,prem){
     var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
     html.style.fontSize = oWidth/pwidth*prem + "px";
 }
+

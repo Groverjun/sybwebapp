@@ -11,23 +11,11 @@
     </div>
     <div class="content" slot="content">
       <div class="text">
-      		<div ref="wrapper" class="wrapper">
-					  <ul class="content">
-					    <li>1</li>
-					    <li>2</li>
-					    <li>2</li>
-					    <li>4</li>
-					    <li>5</li>
-					    <li>5</li>
-					    <li>5</li>
-					    <li>5</li>
-					    <li>5</li>
-					    <li>5</li>
-					    <li>5</li>
-					    <li>5</li>
-					    <li>5</li>
-					  </ul>
-				</div>
+				<ly-tab
+				    v-model="selectedId"
+				    :items="items"
+				    :options="options">
+				</ly-tab>
       </div>
     </div>
   </vue-drawer-layout>
@@ -39,6 +27,22 @@ export default {
 	name:"home",
 	data () {
 		return{
+			      selectedId: 0,
+			      items: [
+			        {label: '首页'},
+			        {label: '推荐'},
+			        {label: 'Android'},
+			        {label: '前端'},
+			        {label: '后端'},
+			        {label: 'iOS'},
+			        {label: '产品'},
+			        {label: '人工智能'},
+			        {label: '设计'}
+			      ],
+			      options: {
+			        activeColor: '#1d98bd'
+			        // 可在这里指定labelKey为你数据里文字对应的字段
+			      },
 		}
 	},
 	computed: {
@@ -50,10 +54,7 @@ export default {
 	created(){
 	},
 	mounted(){
-		this.$nextTick(() => {
-        let bscrollDom = this.$refs.wrapper;
-        this.aBScroll = new BScroll(bscrollDom,{scrollX: true,scrollY: false,})
-    }) 
+		
 	},
 	methods:{
 		handleToggleDrawer() {
